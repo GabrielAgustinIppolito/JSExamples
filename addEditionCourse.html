@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form >     
+        <label for="date">Inserisci la data di inizio</label>
+        <input type="date" id="date" name="date" placeholder="*Data inizio">
+        <span></span>
+        <br>
+        <input type="number" name="idCourse" id="idCourse" placeholder="*ID corso">
+        <span></span>
+        <br>
+        <input type="number" name="modulesNumber" id="modulesNumber" placeholder="*Numero di moduli compresi nell'edizione corrente">
+        <span></span>
+        <br>
+        <input type="text" name="nameClass" id="nameClass" placeholder="*Nome della class di riferimento dell'edizione">       
+        <span></span>
+        <br>
+        <button id="addEditionButton">Aggiungi edizione corso</button>
+        <br>
+        <span id="message">Prego, inserisci tutti i *dati necessari</span>
+    </form>
+
+    <script src="addEditionCourse.js"></script>
+</body>
+</html>
