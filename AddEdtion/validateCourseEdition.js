@@ -29,10 +29,6 @@ actualDate.setHours(0, 0, 0, 0);
 console.log(actualDate);
 btnAddCE.disabled = true;
 
-let validator = {
-    
-};
-
 insDate.addEventListener("focusout", (event) => {
     let spanError = document.querySelector("#date + span");
     if (!insDate.value) { //in js una stringa vuota si converte a false, o undefined o null
