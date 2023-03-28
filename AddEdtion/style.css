@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+}
+
+form {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+input + span {
+    background-color: white;
+    color: red;
+}
