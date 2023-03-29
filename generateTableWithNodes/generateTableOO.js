@@ -28,25 +28,33 @@ rifarlo con oggetto table gerator, avrÃ  come metodi:
     deve chiamare al suo interno 2 metodi: generateHeader e generateRow
  */
 let tableGenerator = {
-    id: null,
-    rows: null,
-    init: function (idTable, [...rowData]) {
-        id = idTable;
-        rows = rowData;
-        console.log("#" + id);
-        console.log(...rows);
+    noDataElement: null,
+    table: null,
+    thead:null,
+    tbody:null,
+    data: null,
+    init: function (idTable, idMessage, rowData) {
+        this.table = document.querySelector(`#${idTable}`);
+        this.thead = document.querySelector(`#${idTable} thead`);
+        this.tbody = document.querySelector(`#${idTable} tbody`);
+        this.data = rowData;
+        this.noDataElement = document.querySelector(`#${idMessage}`)
     },
     generateTable: function () {
-        let table = document.querySelector("#" + id);
-        let headTable = document.querySelector("#" + id + " thead");
-        headTable.appendChild(tableGenerator.generateHeader(rows[0]));
-        
-        rows.forEach((row) =>
-            table.appendChild(tableGenerator.generateRow(row), console.log(row)));
+        if(!this.data){
+            this.table.style.display = "none";
+            this.noDataElement.style.display = "block";
+            return;
+        }
+        this.table.style.display = "table";
+        this.noDataElement.style.display = "none";
+        this.thead.appendChild(this.generateHeader(this.data[0]));
+        this.data.forEach((e) =>
+            this.tbody.appendChild(this.generateRow(e)));
     },
-    generateHeader: (row) => {
+    generateHeader: (element) => {
         let header = document.createElement("tr");
-        for (let property in row) {
+        for (let property in element) {
             let headerCell = document.createElement("th");
             let headerText = document.createTextNode(property);
             headerCell.appendChild(headerText);
@@ -54,16 +62,23 @@ let tableGenerator = {
         }
         return header;
     },
-    generateRow: function (r) {
+    generateRow: function (element) {
         let rowTr = document.createElement("tr");
-        for (let property in r) {
+        for (let property in element) {
             let cell = document.createElement("td");
-            let cellText = document.createTextNode(r[property]);
+            let cellText = document.createTextNode(element[property]);
             cell.appendChild(cellText);
             rowTr.appendChild(cell);
         }
         return rowTr;
     }
 };
-tableGenerator.init("table1", [...courses]);
+tableGenerator.init("table1", "noData", null);
 tableGenerator.generateTable();
+tableGenerator.init("table1", "noData", courses);
+tableGenerator.generateTable();
+
+// let num1 = [1, 2, 3];
+// let num2 = [4, 5, 6];
+// let comb1 = num1.concat(num2);
+// let comb2 = [...num1, ...num2];

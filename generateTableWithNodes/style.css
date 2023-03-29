@@ -1,24 +1,22 @@
-body{
-    background-color: grey;
+/* bordo e divisione per celle ++*/
+table, td, th {
+    border: 2px solid black;
+    border-collapse: collapse;
 }
-table {
-    display: grid;
-    justify-content: center;
-    align-items:end;
-    border: .25rem;
-    border-color: black;
-    border-style: solid;
-    border-radius: 15px;
-    width: fit-content;
-    padding: .5rem;
-    margin: 5rem auto;
-    background-color: aliceblue;
-    
+td, th {
+    padding: 0.25em 0.5em;
 }
 
-thead {
-    color: blue;
+/*bg color coral */
+thead{
+    background-color: coral;
 }
-thead tr th::first-letter {
-    text-transform: capitalize;
+
+/* i dati alternati gialli e verdi e id rosso*/
+tbody tr:nth-child(even){
+    background-color: yellow;
 }
+tbody tr:nth-child(odd){
+    background-color: greenyellow;
+}
+
